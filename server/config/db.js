@@ -3,7 +3,7 @@ require("dotenv").config({ path: "./.env" });
 
 const dbConn = async () => {
   try {
-    await mongoose.connect("mongodb://localhost:27017/niheMart", {
+    await mongoose.connect(process.env.DB_URL, {
       autoIndex: true,
     });
     console.log("Db connected..........");
