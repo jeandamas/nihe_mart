@@ -53,8 +53,9 @@ app.use("/cart", cartRoute);
 app.use("/user", userRouter);
 app.use("/orders", OrderRouter);
 
+const PORT = process.env.PORT
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log("Server is running on port 3000");
 });
 
