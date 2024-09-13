@@ -4,8 +4,7 @@ import axios from "axios";
 
 //  export const api = "http://127.0.0.1:3000";
 // export const api = process.env.API_URL
-export const api = "https://nihemart-api.onrender.com"
- 
+export const api = import.meta.env.VITE_API_URL;
 
 const publicApi = axios.create({
   baseURL: api,
