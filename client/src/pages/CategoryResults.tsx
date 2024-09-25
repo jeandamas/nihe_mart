@@ -41,21 +41,23 @@ const CategoryResults = () => {
   return (
     <section className="flex-1">
       <div className="p-[50px] flex-1">
-        <div className="flex justify-between items-center mb-4">
+        <div className="flex flex-col gap-4 mb-4">
           <SubHeading title={category?.toUpperCase() || "CATEGORY"} />
-          <div className="flex gap-4">
-            <input
-              type="number"
-              placeholder="Min Price"
-              onChange={handleMinPriceChange}
-              className="p-2 border rounded"
-            />
-            <input
-              type="number"
-              placeholder="Max Price"
-              onChange={handleMaxPriceChange}
-              className="p-2 border rounded"
-            />
+          <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4">
+              <input
+                type="number"
+                placeholder="Min Price"
+                onChange={handleMinPriceChange}
+                className="p-2 border rounded"
+              />
+              <input
+                type="number"
+                placeholder="Max Price"
+                onChange={handleMaxPriceChange}
+                className="p-2 border rounded"
+              />
+            </div>
             {subcategories.length > 0 && (
               <select
                 value={selectedSubcategory}

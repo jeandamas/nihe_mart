@@ -7,7 +7,7 @@ const About = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="flex flex-col font-poppins m-0">
+    <div className="flex flex-col m-0 font-poppins">
       <div className="bg-gradient-to-r from-blue2 to-deepBlue flex flex-col md:flex-row justify-around px-[40px] gap-3">
         <div className="content-center md:w-[50%] px-5">
           <h1 className="text-white text-[28px] md:text-[48px] lg:text-[60px] font-bold text-center md:text-start">
@@ -30,7 +30,7 @@ const About = () => {
               {t("who")}
             </h1>
             <p className="text-[16px] font-poppins text-center md:text-start">
-            {t("whoDesc")}
+              {t("whoDesc")}
             </p>
           </div>
           <div>
@@ -38,7 +38,7 @@ const About = () => {
               {t("mission")}
             </h1>
             <p className="text-[16px] font-poppins text-center md:text-start">
-            {t("missionDesc")}
+              {t("missionDesc")}
             </p>
           </div>
           <div>
@@ -53,7 +53,7 @@ const About = () => {
             </ul>
           </div>
         </div>
-        <div className="md:w-[50%] flex flex-col items-center">
+        <div className="md:w-[50%] flex-col items-center hidden">
           <h1 className="text-black font-bold text-[30px]">Meet Our Team</h1>
           <Team />
         </div>

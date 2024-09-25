@@ -88,12 +88,12 @@ const Product = () => {
 
   const handleOrderNowClick = () => {
     const productDetails = {
-      productId:product._id,
+      productId: product._id,
       name: product.name,
       price: currentPrice,
       quantity: quantity,
       variation: Object.values(selectedValues),
-      directOrder:true,
+      directOrder: true,
     };
     addProduct(productDetails);
     navigate(
@@ -112,31 +112,31 @@ const Product = () => {
       }
       return prev;
     });
-    setCurrentQuantity((prev)=>{
-      if(prev > 0){
+    setCurrentQuantity((prev) => {
+      if (prev > 0) {
         return prev - 1;
       }
-      return 0
-    })
+      return 0;
+    });
   };
 
   const decrementQuantity = () => {
     setQuantity((prevQuantity) => (prevQuantity > 1 ? prevQuantity - 1 : 1));
-    setCurrentQuantity((prev)=>{
-      if(prev <= product.quantity){
+    setCurrentQuantity((prev) => {
+      if (prev <= product.quantity) {
         return prev + 1;
       }
-      return prev
-    })
+      return prev;
+    });
   };
 
   const handleAddToCart = (productId) => {
     addToCart(productId, quantity);
   };
   return (
-    <div className=" px-5 md:px-10 font-poppins">
+    <div className="px-5 md:px-10 font-poppins">
       {isLoading ? (
-        <div className="min-h-screen flex items-center justify-center text-lg">
+        <div className="flex items-center justify-center min-h-screen text-lg">
           Loading...
         </div>
       ) : product !== null ? (
@@ -147,9 +147,9 @@ const Product = () => {
                 / {product.category} /{" "}
                 <span className="text-black">{product.name}</span>
               </p>
-              <div className="flex flex-col lg:flex-row justify-between md:gap-5">
+              <div className="flex flex-col justify-between lg:flex-row md:gap-5">
                 {/* images container */}
-                <div className="flex lg:w-1/2 flex-col md:flex-row">
+                <div className="flex flex-col lg:w-1/2 md:flex-row">
                   <div className=" md:min-w-[100px] w-full md:w-[15%] md:h-[560px] flex gap-5 flex-row md:flex-col justify-between md:justify-start my-[10px] overflow-x-auto no-scrollbar ">
                     {product?.photos?.map((img, index) => (
                       <img
@@ -174,9 +174,9 @@ const Product = () => {
                   </div>
                 </div>
 
-                <div className="flex flex-col gap-3 lg:w-1/2 px-5">
+                <div className="flex flex-col gap-3 px-5 lg:w-1/2">
                   <h1 className="text-[24px] font-semibold">{product.name}</h1>
-                  <div className="flex gap-3 items-center">
+                  <div className="flex items-center gap-3">
                     {/* <StarRating starCount={product.averageRating} />
                   <p className="text-gray-90">({product.ratings?.length})</p> | */}
                     <p className="text-[#00FF66]">
@@ -188,7 +188,7 @@ const Product = () => {
                   <p className="text-primary font-semibold text-[24px] flex items-center gap-3">
                     {currentPrice} frw{" "}
                     {product.priceAfterDiscount && (
-                      <span className="text-gray-90 line-through text-lg">
+                      <span className="text-lg line-through text-gray-90">
                         {product.price} frw
                       </span>
                     )}
@@ -218,9 +218,9 @@ const Product = () => {
                     ))}
                   </div>
                   <div className="flex gap-5">
-                    <div className="w-[100px] md:min-w-[150px] px-[10px] border-[1px] border-gray-90 rounded-md flex justify-between items-center">
+                    <div className="w-full md:min-w-[150px] px-[10px] border-[1px] border-gray-90 rounded-md flex justify-between items-center">
                       <button
-                        className="flex items-center gap-2 justify-between"
+                        className="flex items-center justify-between gap-2"
                         onClick={decrementQuantity}
                         disabled={quantity === 1}
                       >
@@ -229,7 +229,7 @@ const Product = () => {
                       </button>
                       <p>{quantity}</p>
                       <button
-                        className="flex items-center gap-2 justify-between"
+                        className="flex items-center justify-between gap-2"
                         onClick={incrementQuantity}
                         disabled={quantity === product.quantity}
                       >
@@ -239,14 +239,14 @@ const Product = () => {
                     </div>
                     <button
                       onClick={() => handleAddToCart(product._id)}
-                      className="bg-primary w-[29%] px-2 py-[10px] rounded-md hover:bg-opacity-[60%] transition-all duration-600 text-white flex justify-between items-start"
+                      className="bg-primary w-full px-2 py-[10px] rounded-md hover:bg-opacity-[60%] transition-all duration-600 text-white flex justify-between items-start"
                     >
                       <img src={cart} alt="" />
                       Shyira mu gatebo
                     </button>
                   </div>
                   <div className="border-[2px] border-gray-80 rounded-lg ">
-                    <div className="m-[20px] flex justify-between">
+                    <div className="m-[20px] justify-between hidden">
                       <div className="">
                         <img src={delivery} alt="icon" />
                         <div>
@@ -286,11 +286,13 @@ const Product = () => {
               </div>
             </div>
           </div>
-          <div className="my-2">
-            <h1 className="font-semibold font-poppins text-2xl">
+          <div className="m-[20px]">
+            <h1 className="py-5 text-2xl font-semibold font-poppins">
               Ubusobanuro bw'igicuruzwa
             </h1>
-            <p className="text-black text-[16px]">{product.description}</p>
+            <p className="text-black text-start text-[16px]">
+              {product.description}
+            </p>
           </div>
           <div className="my-[20px]">
             <SubHeading title="Ibindi byerekeranye" />

@@ -15,6 +15,13 @@ const Languages = () => {
 
   const dropdownRef = useRef(null);
 
+  // Set default language to Kinyarwanda on mount
+  useEffect(() => {
+    if (i18n.language !== "rw") {
+      i18n.changeLanguage("rw");
+    }
+  }, [i18n]);
+
   // Close the dropdown if clicked outside
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -32,10 +39,12 @@ const Languages = () => {
   return (
     <div className="relative" ref={dropdownRef}>
       <button
-        className="flex justify-center items-center gap-1"
+        className="flex items-center justify-center gap-1"
         onClick={() => setIsOpen((prev) => !prev)}
       >
-        <img src={Language} alt="language" /> {languages.find(lang => lang.code === i18n.language)?.name || languages[0].name}
+        <img src={Language} alt="language" />{" "}
+        {languages.find((lang) => lang.code === i18n.language)?.name ||
+          languages[0].name}
         <PiCaretUpBold
           className={`${
             isOpen ? "rotate-180" : "rotate-0"
@@ -51,10 +60,14 @@ const Languages = () => {
         {languages.map((language, index) => (
           <div
             key={index}
-            className="flex w-full justify-start gap-5 border border-transparent items-center p-4 hover:bg-glass2 cursor-pointer rounded-lg"
+            className="flex items-center justify-start w-full gap-5 p-4 border border-transparent rounded-lg cursor-pointer hover:bg-glass2"
             onClick={() => handleLanguageChange(language.code)}
           >
-            <img src={language.icon} className="w-[20px]" alt={`${language.name} icon`} />
+            <img
+              src={language.icon}
+              className="w-[20px]"
+              alt={`${language.name} icon`}
+            />
             <p>{language.name}</p>
           </div>
         ))}

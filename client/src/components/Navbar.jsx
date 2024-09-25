@@ -22,7 +22,7 @@ const Navbar = () => {
     setSidebarOpen(false);
   };
   return (
-    <div className="flex justify-between gap-3 items-center m-5 shadow-lg rounded-lg px-5 sticky -top-1 z-50 bg-white">
+    <div className="sticky z-50 flex items-center justify-between gap-3 px-5 m-5 bg-white rounded-lg shadow-lg -top-1">
       <Link to="/" className="w-[82px] h-[87px]">
         <img
           src={logo}
@@ -31,32 +31,32 @@ const Navbar = () => {
         />
       </Link>
 
-      <ul className=" hidden md:flex gap-5 xl:gap-10">
+      <ul className="hidden gap-5 md:flex xl:gap-10">
         <NavLink
           to={"/"}
           activeclassname="active"
-          className="hover:text-primary transition-colors"
+          className="transition-colors hover:text-primary"
         >
           {t("home")}
         </NavLink>
         <NavLink
           to={"/tumenye"}
           activeclassname="active"
-          className="hover:text-primary transition-colors"
+          className="transition-colors hover:text-primary"
         >
           {t("about")}
         </NavLink>
         <NavLink
           to={"/tuvugishe"}
           activeclassname="active"
-          className="hover:text-primary transition-colors"
+          className="transition-colors hover:text-primary"
         >
           {t("contact")}
         </NavLink>
         <NavLink
           to={"/ubufasha"}
           activeclassname="active"
-          className="hover:text-primary transition-colors"
+          className="transition-colors hover:text-primary"
         >
           {t("help")}
         </NavLink>
@@ -65,20 +65,20 @@ const Navbar = () => {
       <div className="hidden xl:block">
         <Search />
       </div>
-      <div className="flex gap-5 items-center">
+      <div className="flex items-center gap-5">
         <div
-          className="flex items-center justify-center xl:hidden p-2 rounded-full hover:bg-gray-100"
+          className="flex items-center justify-center p-2 rounded-full xl:hidden hover:bg-gray-100"
           onClick={() => setSearch(true)}
         >
           <Icon icon={"material-symbols-light:search"} className="w-6 h-6" />
         </div>
-        <div className="hidden md:flex items-center justify-between gap-5">
+        <div className="items-center justify-between hidden gap-5 md:flex">
           <Languages />
           <Profile />
         </div>
         <Link
           to={"/ibyo-wakunze"}
-          className="w-10 h-10 flex items-center justify-center"
+          className="flex items-center justify-center w-10 h-10"
         >
           <Icon
             icon={"solar:heart-outline"}
@@ -96,7 +96,7 @@ const Navbar = () => {
           />
         </Link>
         <div
-          className="flex items-center justify-center md:hidden p-2 rounded-full hover:bg-gray-100"
+          className="flex items-center justify-center p-2 rounded-full md:hidden hover:bg-gray-100"
           onClick={() => handleSidebarOpen()}
         >
           <Icon icon={"clarity:bars-line"} fontSize={24} />
@@ -138,37 +138,37 @@ const Navbar = () => {
           </Link>
           <div
             onClick={() => setSidebarOpen(false)}
-            className="flex items-center justify-center border border-primary rounded-full p-2 hover:bg-primary hover:text-white"
+            className="flex items-center justify-center p-2 border rounded-full border-primary hover:bg-primary hover:text-white"
           >
             <FaX />
           </div>
         </div>
-        <div className=" md:hidden flex flex-col gap-5 xl:gap-10 mt-5">
+        <div className="flex flex-col gap-5 mt-5 md:hidden xl:gap-10">
           <NavLink
             to={"/"}
             activeclassname="active"
-            className="hover:text-primary transition-colors"
+            className="transition-colors hover:text-primary"
           >
             {t("home")}
           </NavLink>
           <NavLink
             to={"/tumenye"}
             activeclassname="active"
-            className="hover:text-primary transition-colors"
+            className="transition-colors hover:text-primary"
           >
             {t("about")}
           </NavLink>
           <NavLink
             to={"/tuvugishe"}
             activeclassname="active"
-            className="hover:text-primary transition-colors"
+            className="transition-colors hover:text-primary"
           >
             {t("contact")}
           </NavLink>
           <NavLink
             to={"/ubufasha"}
             activeclassname="active"
-            className="hover:text-primary transition-colors"
+            className="transition-colors hover:text-primary"
           >
             {t("help")}
           </NavLink>
